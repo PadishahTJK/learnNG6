@@ -8,12 +8,15 @@ import { CribListingComponent } from './crib-listing/crib-listing.component';
 import { CribCardsComponent } from './crib-cards/crib-cards.component';
 import { CribsService } from './services/cribs.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AddListingFormComponent } from './add-listing-form/add-listing-form.component';
+import { UtilService} from './services/util.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CribListingComponent,
-    CribCardsComponent
+    CribCardsComponent,
+    AddListingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule
 
   ],
-  providers: [CribsService],
+  providers: [CribsService, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
