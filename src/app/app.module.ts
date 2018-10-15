@@ -10,13 +10,15 @@ import { CribsService } from './services/cribs.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AddListingFormComponent } from './add-listing-form/add-listing-form.component';
 import { UtilService} from './services/util.service';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CribListingComponent,
     CribCardsComponent,
-    AddListingFormComponent
+    AddListingFormComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

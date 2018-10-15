@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Http,Response} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import {Icrib } from '../icrib';
 import { Observable} from 'rxjs';
@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import {CribsService} from '../services/cribs.service';
 import {TestJSONService} from '../services/test-json.service';
 import { Iuser } from '../iuser';
+import { UtilService} from '../services/util.service';
 
 
 @Component({
@@ -21,15 +22,17 @@ export class CribListingComponent implements OnInit {
  // cribs: Array<any> = cribs;
     cribs: Array<Icrib> = [];
     url = 'data/cribs.json';
-    error: string = '';
-  sortFields: Array<string> = [
-       'address',
-        'area',
-      'bathroom',
-      'bedroom',
-      'price',
-      'type'
-    ];
+    error = '';
+    sortField = '';
+    sortFields: Array<string> = [
+           'address',
+            'area',
+          'bathroom',
+          'bedroom',
+          'price',
+          'type'
+      ];
+    sortDirection = 'asc';
 
     form: Array<any> = [];
     users: Array<Iuser> = [];
@@ -38,7 +41,8 @@ export class CribListingComponent implements OnInit {
   constructor(private http: Http,
               private httpC: HttpClient,
               private cribService: CribsService,
-              private testJSONService: TestJSONService ) { }
+              private testJSONService: TestJSONService,
+              public  utilService: UtilService) { }
 
   ngOnInit() {
       this.cribService.getCribList()
